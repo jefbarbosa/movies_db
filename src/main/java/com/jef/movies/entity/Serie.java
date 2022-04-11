@@ -1,5 +1,6 @@
 package com.jef.movies.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,8 +23,10 @@ public class Serie {
 
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @JsonIgnore
     private Genre genre;
 
     @OneToMany(mappedBy = "serie")
+    @JsonIgnore
     private List<Season> seasons = new ArrayList<>();
 }

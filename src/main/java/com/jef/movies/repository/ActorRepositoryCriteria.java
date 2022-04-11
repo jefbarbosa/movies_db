@@ -27,6 +27,7 @@ public class ActorRepositoryCriteria {
         cq.where(actorFirstName);
 
         TypedQuery<Actor> query = em.createQuery(cq);
+        em.close();
         return query.getResultList();
     }
 }

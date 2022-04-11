@@ -2,7 +2,6 @@ package com.jef.movies.controller;
 
 import com.jef.movies.dto.MovieDTO;
 import com.jef.movies.entity.Movie;
-import com.jef.movies.repository.MovieRepository;
 import com.jef.movies.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/movie")
