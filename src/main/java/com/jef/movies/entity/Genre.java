@@ -20,8 +20,8 @@ public class Genre {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private String name;
-    private int ranking;
-    private int active;
+    private Integer ranking;
+    private Integer active;
 
     @OneToMany(mappedBy = "genre")
     private List<Serie> series = new ArrayList<>();

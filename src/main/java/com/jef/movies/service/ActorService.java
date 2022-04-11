@@ -2,6 +2,7 @@ package com.jef.movies.service;
 
 import com.jef.movies.entity.Actor;
 import com.jef.movies.repository.ActorRepository;
+import com.jef.movies.repository.ActorRepositoryCriteria;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 public class ActorService {
     private ActorRepository actorRepository;
+    private ActorRepositoryCriteria actorRepositoryCriteria;
+
+    public List<Actor> getActorWithFirstNamePrefix(String prefixFirstName) {
+        return actorRepositoryCriteria.getActorWithFirstNamePrefix(prefixFirstName);
+    }
 
     public List<Actor> getActorsGreaterThanRating(double rating) {
         return actorRepository.findActorsByRatingGreaterThanEqual(rating);

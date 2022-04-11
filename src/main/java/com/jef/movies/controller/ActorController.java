@@ -16,6 +16,11 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
+    @GetMapping("/prefix-first-name")
+    public ResponseEntity<List<Actor>> getActorsGreaterThanRating(@RequestParam("prefixFirstName") String prefixFirstName) {
+        return new ResponseEntity<>(actorService.getActorWithFirstNamePrefix(prefixFirstName), HttpStatus.OK);
+    }
+
     @GetMapping("/{rating}")
     public ResponseEntity<List<Actor>> getActorsGreaterThanRating(@PathVariable("rating") double rating) {
         return new ResponseEntity<>(actorService.getActorsGreaterThanRating(rating), HttpStatus.OK);

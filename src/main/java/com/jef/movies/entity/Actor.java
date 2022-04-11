@@ -18,7 +18,7 @@ public class Actor {
     private LocalDateTime updatedAt;
     private String firstName;
     private String lastName;
-    private double rating;
+    private Double rating;
 
     @ManyToMany(mappedBy = "actors")
     @JsonIgnore
