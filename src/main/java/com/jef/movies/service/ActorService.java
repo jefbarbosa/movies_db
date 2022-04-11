@@ -15,4 +15,10 @@ public class ActorService {
     public List<Actor> getActorsGreaterThanRating(double rating) {
         return actorRepository.findActorsByRatingGreaterThanEqual(rating);
     }
+
+    public List<Actor> getActorsByMovie(String movie) {
+//        return actorRepository.findByMovies_title(movie);
+//        return actorRepository.findAllActorsByMoviesTitle(movie);
+        return actorRepository.findAllActors_UsingMovieTitle(movie);
+    }
 }

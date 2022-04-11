@@ -5,10 +5,7 @@ import com.jef.movies.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,10 @@ public class ActorController {
     @GetMapping("/{rating}")
     public ResponseEntity<List<Actor>> getActorsGreaterThanRating(@PathVariable("rating") double rating) {
         return new ResponseEntity<>(actorService.getActorsGreaterThanRating(rating), HttpStatus.OK);
+    }
+
+    @GetMapping("/actors-by-movie")
+    public ResponseEntity<List<Actor>> getActorsByMovie(@RequestParam("movie") String movie) {
+        return new ResponseEntity<>(actorService.getActorsByMovie(movie), HttpStatus.OK);
     }
 }
